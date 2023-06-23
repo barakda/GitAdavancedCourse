@@ -1,0 +1,20 @@
+
+name: test-yml-actions1
+on:
+  push:
+    branches:
+      - barak4
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      production:
+        description: 'Click the checkbox for production images'
+        default: false
+        type: boolean
+        required: false
+env:
+  IMAGE_VERSION: 'v0.9.1'
+jobs:
+  prepare_env: 
+    name: "Prepare env"
+    runs-on: ubuntu-latest
